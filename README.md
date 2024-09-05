@@ -12,8 +12,8 @@ Based on the following document [Link](http://www.inverter-plc.com/plc/melsec/FX
 2. [Usage Example](#usage-example)
 3. [Parser Capabilities](#parser-capabilities)
 4. [Extending the interface capabilities](#extending-the-interface-capabilities)
-5. [Limitations](#Limitations)
-6. [Compatibility] (#compatibility)
+5. [Limitations](#limitations)
+6. [Compatibility](#compatibility)
 
 
 ## Protocol Details
