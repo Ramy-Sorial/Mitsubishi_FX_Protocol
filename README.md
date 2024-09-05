@@ -7,11 +7,12 @@ __Developed on the Chinese FX3U PLCs like the one in the below picture__
 Based on the following document [Link](http://www.inverter-plc.com/plc/melsec/FX-232AW%20USER%20MANUAL.pdf)
 
 ## Contents
-1. [Protocol Details]
-2. [Usage Example]
-3. [Parser Capabilities]
-4. [Extending the interface capabilities]
-5. [Limitations with the Chinese FX32 CPU]
+1. [Protocol Details](#protocol-details)
+2. [Usage Example](#usage-example)
+3. [Parser Capabilities](#parser-capabilities)
+4. [Extending the interface capabilities](#extending-the-interface-capabilities)
+5. [Limitations](#Limitations)
+6. [Compatibility] (#Compatibility)
 
 
 ## Protocol Details
@@ -22,6 +23,8 @@ The protocol works over RS232, below are the default communication params
 - Data format: `ASCII`
 
 The protocol allows the remote PC to read the below types:
+
+`Misubishi_FX_Protocol.cs`
 ```cs
     public enum RegisterType : byte
     {
@@ -42,6 +45,8 @@ The protocol allows the remote PC to read the below types:
 ```
 As for writing data, the only successfully tested numeric type was the Data type `D`.
 For the below types, you can force individual bits to ON or OFF:
+
+`Misubishi_FX_Protocol.cs`
 ```cs
     public enum RegisterType : byte
     {
@@ -66,6 +71,8 @@ For the below types, you can force individual bits to ON or OFF:
 ```
 
 - All operations return a `MFX_State` which can be any of the below cases:
+
+`Misubishi_FX_Protocol.cs`
 ```cs
 public enum MFX_State
 {
@@ -143,7 +150,7 @@ var t = CPU.WriteNumericData_16B(RegisterType.Data, 0, (byte)Offset, Data);
 ## Extending the interface capabilities
 It is possible to exend the capabilities of the interface libraries by implementing various `ItransLayer` classes.
 
-## Limitations with the Chinese FX32 CPU
+## Limitations
 The project is still work in progress, however, the following limitations were observed:
 1. 1. Writing multiple bits
 2. Writing any numeric data other than the `D` type
