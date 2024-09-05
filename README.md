@@ -13,7 +13,7 @@ Based on the following document [Link](http://www.inverter-plc.com/plc/melsec/FX
 3. [Parser Capabilities](#parser-capabilities)
 4. [Extending the interface capabilities](#extending-the-interface-capabilities)
 5. [Limitations](#Limitations)
-6. [Compatibility] (#Compatibility)
+6. [Compatibility] (#compatibility)
 
 
 ## Protocol Details
