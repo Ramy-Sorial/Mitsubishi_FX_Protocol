@@ -128,11 +128,16 @@ Assuming the below variables inside the CPU:
 ### reading from the CPU
 ```cs
 ushort[] Data;
-var Result = CPU.ReadNumericData_16B(RegisterType.Data, 0, 8, out Data);
-int Offset = 0;
 
+//Read the data words from the CPU
+var Result = CPU.ReadNumericData_16B(RegisterType.Data, 0, 8, out Data);
+
+int Offset = 0;
+//parse a flot starting from address 0 then increment the offset counter
 float F = MFX_Protocol.ParseFloat(Data, Offset); Offset += 2;
+//parse a flot starting from address 2 then increment the offset counter
 UInt32 G = MFX_Protocol.ParseUInt32(Data, Offset); Offset += 2;
+//parse a flot starting from address 4 then increment the offset counter
 Int32 H = MFX_Protocol.ParseInt32(Data, Offset); Offset += 2;
 ```
 
@@ -142,9 +147,14 @@ ushort[] Data = new ushort[6];
 
 int Offset = 0;
 
+//Encode a float value into location 0 then increment the offset counter
 MFX_Protocol.EncodeFloat(ref Data, Offset, 1.25f); Offset += 2;
+//Encode an UInt32 value into location 2 then increment the offset counter
 MFX_Protocol.EncodeUInt32(ref Data, Offset, 150000); Offset += 2;
+//Encode an Int32 value into location 4 then increment the offset counter
 MFX_Protocol.EncodeInt32(ref Data, Offset, -160000); Offset += 2;
+
+//write the data words to the CPU
 var t = CPU.WriteNumericData_16B(RegisterType.Data, 0, (byte)Offset, Data);
 ```
 
